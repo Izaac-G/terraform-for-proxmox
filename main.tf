@@ -64,7 +64,7 @@ resource "proxmox_vm_qemu" "cloudinit-test" {
     # Cloud init configuration
     ciupgrade  = true
 #    ipconfig0  = "ip=dhcp" THIS NEVER WORKED, IT'S NEVER GOING TO WORK. GIVE UP (Actually it might work if you set the gateway to your dhcp server)
-    ipconfig0  = "ip=192.169.0.60/24, gw=192.168.0.1"           # Set your VM and gateway IP
+    ipconfig0  = "ip=192.168.0.60/24, gw=192.168.0.1"           # Set your VM and gateway IP
     skip_ipv6  = true
     ciuser     = "test-user"
     cipassword = "test-password"
