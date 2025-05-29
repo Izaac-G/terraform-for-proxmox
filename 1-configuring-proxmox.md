@@ -1,9 +1,9 @@
 # Configuring Proxmox for use with Terraform
-1) Create a user account for Terraform 
+1) Create a user account for Terraform  
 Datacenter view -> Permissions -> Users -> Add 
 For the purposes of my example, I have named the user "terraform" (peak creativity) 
 
-2) Create a role for the terraform user
+2) Create a role for the terraform user  
 Datacenter view -> Permissions -> Roles -> Create  
 Name your role something identifiable (please).  
 For the purpose of my example, I have named the role "terraform-roles"  
