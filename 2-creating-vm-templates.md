@@ -1,6 +1,6 @@
 # Creating a Proxmox VM template using cloud-init
 
-1) Create a blank VM (GUI Method)  
+1) Create a blank VM (Using the GUI)  
 **Remember the VM ID, this is what we want to use when referencing the created image in the terminal**
 No disk image is needed  
 When you get to "System", check Qemu Agent on. (This is also done in our Terraform config so I need to test if this is necessary)  
@@ -19,7 +19,7 @@ VM -> Hardware -> Add -> CloudInit Drive
 3) SSH into your proxmox host as root
 
 4) Install libguestfs-tools if your Proxmox host does not have it, we will need this to install the QEMU-guest-agent on our virtual machine disk image.  
-`apt-get install libguestfs-tools`
+`apt install libguestfs-tools`
 
 4) Download your desired cloud init image  
 `wget {your image link from step 2}`
