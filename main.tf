@@ -63,7 +63,7 @@ resource "proxmox_vm_qemu" "cloudinit-test" {
   }
   # Cloud init configuration
   ciupgrade = true
-  ipconfig0  = "ip=192.168.88.65/24, gw=192.168.88.1" # Set your VM and gateway IP
+  ipconfig0  = "ip=192.168.0.2/24, gw=192.168.0.1" # Set your VM and gateway IP
   skip_ipv6  = true
   ciuser     = "test-user" 
   cipassword = "test-password"
