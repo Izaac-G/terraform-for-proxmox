@@ -8,7 +8,7 @@ No disk needed (remove disk when configuring VM as there will already be one by 
 Use low resources (the VMs created from this template will have resources configured in Terraform)  
 Once VM is created, we'll mount a cloud init drive  
 VM -> Hardware -> Add -> CloudInit Drive   
-- If you have not configured any other storage devices in Proxmox, your storage is most likely named "local-lvm". local-lvm is the default if you used LVM during your Proxmox installation
+    - If you have not configured any other storage devices in Proxmox, your storage is most likely named "local-lvm". local-lvm is the default if you used LVM during your Proxmox installation
 
 2) Find the link of the most recent stable cloud image then snag the .img link (qcow2 should work too, QEMU converts between image formats so I'm pretty sure it matters nil)  
     - [Ubuntu 24.04](https://cloud-images.ubuntu.com/minimal/releases/noble/release/)
@@ -31,7 +31,7 @@ virt-customize sets the machine-id; for our purposes this is undesired behavior,
 `mv {installed image} {new image name}.qcow2`
 
 7) Resize the image  
-`qemu-img resize {new image name}.qcow2 {size}`
+`qemu-img resize {image name}.qcow2 {size}`
 
 8) Import the newly created disk into Proxmox  
 `qm importdisk {VM ID from step 1} {image name} {local storage device}`  
@@ -39,7 +39,7 @@ virt-customize sets the machine-id; for our purposes this is undesired behavior,
 
 9) Configure the template VM to use the newly created disk on the GUI  
 VM -> Hardware -> Click that newly created disk -> Edit  
-- If you are using an SSD 
+- If you are using an SSD: 
     - Turn on the [Discard](https://www.oreilly.com/library/view/mastering-proxmox/9781788397605/03431488-8696-41e3-92e2-a60482b6e4e9.xhtml) option.
     - Also turn on the SSD emulation (what were you planning to emulate with this? A hard drive? A floppy? Get with the times.)  
     Select Advanced -> SSD Emulation
